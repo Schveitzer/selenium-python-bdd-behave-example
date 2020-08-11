@@ -1,0 +1,65 @@
+version: '3.5'
+services:
+    zalenium:
+        image: dosel/zalenium
+        container_name: zalenium
+        privileged: true
+        tty: true
+        volumes:
+            - '/var/run/docker.sock:/var/run/docker.sock'
+            - './videos:/home/seluser/videos'
+            - './test-report/Downloads:/tmp/node/home/seluser/Downloads'
+        ports:
+            - '4444:4444'
+        command: >
+            start --timeZone ${TIMEZONE}
+                  --screenWidth ${SCREENWIDTH} --screenHeight ${SCREENHEIGHT}
+                  --maxTestSessions ${MAXTESTSESSIONS}
+                  --desiredContainers ${CONTAINERS}
+                  --videoRecordingEnabled ${VIDEORECORDINGENABLE}
+                  --seleniumImageName elgalu/selenium:${DOCKER_ZALENIUM_VERSION}
+
+    selenium-hub:
+        image: selenium/hub:${DOCKER_SELENIUM_VERSION}
+        container_name: selenium
+        networks:
+            - selenium-network
+        ports:
+            - '4444:4444'
+
+    selenium-chrome:
+        image: selenium/node-chrome:checklist
+        networks:
+            - selenium-network
+        volumes:
+            - '/dev/shm:/dev/shm'
+            - './test-report/Downloads:/home/seluser/Downloads'
+        depends_on:
+            - selenium-hub
+        environment:
+            - HUB_HOST=selenium
+            - HUB_PORT=4444
+            - SCREEN_WIDTH=${SCREENWIDTH}
+            - SCREEN_HEIGHT=${SCREENHEIGHT}
+            - SCREEN_DEPTH=${SCREEN_DEPTH}
+            - TZ=${TIMEZONE}
+
+    selenium-standalone:
+        image: selenium/standalone-chrome:checklist
+        container_name: selenium
+        networks:
+            - selenium-network
+        volumes:
+            - '/dev/shm:/dev/shm'
+            - './test-report/Downloads:/home/seluser/Downloads'
+        ports:
+            - '4444:4444'
+        environment:
+            - SCREEN_WIDTH=${SCREENWIDTH}
+            - SCREEN_HEIGHT=${SCREENHEIGHT}
+            - SCREEN_DEPTH=${SCREEN_DEPTH}
+            - TZ=${TIMEZONE}
+
+networks:
+    selenium-network:
+        name: selenium-network

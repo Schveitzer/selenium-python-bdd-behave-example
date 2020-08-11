@@ -1,0 +1,9 @@
+.pyc
+*.pyc
+.DS_STORE
+*.DS_STORE
+videos
+test-report
+venv
+
+
