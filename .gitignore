@@ -2,6 +2,7 @@
 *.pyc
 .DS_STORE
 *.DS_STORE
+.idea
 videos
 test-report
 venv
