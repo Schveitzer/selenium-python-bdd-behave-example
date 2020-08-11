@@ -1,5 +1,5 @@
 # Selenium Python Behave
-##### [Para ver o projeto em português clique aqui](https://www.python.org/downloads/)
+#### [Para ver o projeto em português clique aqui](https://github.com/Schveitzer/selenium-python-bdd-behave-example/tree/master/tests/featuresInPortuguese)
 
 In this project I demonstrate how to use Selenium WebDriver with Behave for automation of web interface tests using BDD concepts.
 
@@ -36,9 +36,9 @@ Start Zalenium server:
 $ make zalenium
 ```
 ## Config
-In this project all the settings of the webdriver are in the file [browser.py](./tests/browser.py)
+In this project all the settings of the webdriver are in the file [browser.py](https://github.com/Schveitzer/selenium-python-bdd-behave-example/blob/master/tests/browser.py)
 
-The behave settings are in the file [behave.ini](./behave.ini)
+The behave settings are in the file [behave.ini](https://github.com/Schveitzer/selenium-python-bdd-behave-example/blob/master/behave.ini)
 
 ## To run tests:
 ```bash
@@ -47,8 +47,7 @@ $ make tests
 
 ## PLive preview of your running tests
 
-
- `http://localhost:4444/grid/admin/live`
+> http://localhost:4444/grid/admin/live
  
 ## Reports
 Run the command below to generate the test report in the folder `./test-report/allure-report`:
@@ -73,7 +72,7 @@ Variable of "context" in Behave is a place where you can store information to sh
  
 It is through the context variable that we will pass the pages between tests, so it is easier to reuse without the need to instantiate each class in each step or tests that is necessary.
 
-Behave's context variables as well as the functions to be executed before, during and after the tests, are stored in the file   [environment.py](./tests/environment.py)
+Behave's context variables as well as the functions to be executed before, during and after the tests, are stored in the file   [environment.py](https://github.com/Schveitzer/selenium-python-bdd-behave-example/blob/master/tests/environment.py)
 
 ```Python
 def before_all(context):
@@ -100,7 +99,7 @@ In this project, the Singleton pattern is implemented as shown below, where the 
 
 There are several ways to implement the Singleton pattern and instantiate classes in Python, but this way it is easier and simpler to share the pages between tests, where we do not need to extend the class to each step or function.
 
-[login_page.py](./tests/pages/login_page.py)
+[login_page.py](https://github.com/Schveitzer/selenium-python-bdd-behave-example/blob/master/tests/pages/login_page.py)
 ```python
 from selenium.webdriver.common.by import By
 from browser import Driver

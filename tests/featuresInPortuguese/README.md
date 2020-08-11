@@ -40,9 +40,9 @@ Neste projeto todas as configurações do webdriver estão no arquivo [browser.p
 As configurações do behave estão no arquivo [behave.ini](./behave.ini)
 
 ## Para executar os testes:
-`Substituir as pastas: features e steps, pelas contidas na pasta featureInPortugues`
-
-`Descomentar a linha 9 do behave.ini`
+>Substituir as pastas: features e steps, pelas contidas na pasta featureInPortugues.
+>
+>Descomentar a linha 9 do behave.ini
 
 ```bash
 $ make tests
@@ -50,8 +50,7 @@ $ make tests
 
 ## Para acompanhar a execução dos testes
 
-`Acessar a url:
- http://localhost:4444/grid/admin/live`
+> http://localhost:4444/grid/admin/live
 
 ## Relatório
 Execute o comando abaixo para gerar o relatório dos testes na pasta `./test-report/allure-report`:
