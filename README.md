@@ -45,7 +45,7 @@ The behave settings are in the file [behave.ini](https://github.com/Schveitzer/s
 $ make tests
 ```
 
-## PLive preview of your running tests
+## Live preview of your running tests
 
 > http://localhost:4444/grid/admin/live
  
